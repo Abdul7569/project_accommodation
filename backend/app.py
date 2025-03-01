@@ -15,6 +15,6 @@ def chat():
 
     response = chatbot_response(user_message)  # ✅ Now this will work!
     return jsonify({"reply": response})
-
+    print("hello")
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
