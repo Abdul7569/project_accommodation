@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Listings</title>
+    <link rel="stylesheet" href="explore_listing.css">
+</head>
+<body>
+    <header>
+        <h1>Explore Listings</h1>
+    </header>
+
+    <nav>
+        <button class="tab-link active" data-tab="available-rooms">Available Rooms</button>
+        <button class="tab-link" data-tab="room-swap">Room Swap</button>
+        <button class="tab-link" data-tab="furniture-sale">Furniture Sale</button>
+        <button class="tab-link" data-tab="giveaways">Giveaways</button>
+        <button id="post-listing-btn">Post Listing</button>
+    </nav>
+
+    <section id="listings">
+        <div id="available-rooms" class="tab-content active">
+            <h2>Available Rooms</h2>
+            <div class="list-container"></div>
+        </div>
+
+        <div id="room-swap" class="tab-content">
+            <h2>Room Swap</h2>
+            <div class="list-container"></div>
+        </div>
+
+        <div id="furniture-sale" class="tab-content">
+            <h2>Furniture Sale</h2>
+            <div class="list-container"></div>
+        </div>
+
+        <div id="giveaways" class="tab-content">
+            <h2>Giveaways</h2>
+            <div class="list-container"></div>
+        </div>
+    </section>
+
+    <!-- Post Listing Form (Initially Hidden) -->
+    <div id="post-form-container">
+        <form id="post-form">
+            <h2>Post a New Listing</h2>
+            <label>Category:</label>
+            <select id="category">
+                <option value="available-rooms">Available Rooms</option>
+                <option value="room-swap">Room Swap</option>
+                <option value="furniture-sale">Furniture Sale</option>
+                <option value="giveaways">Giveaways</option>
+            </select>
+
+            <label>Title:</label>
+            <input type="text" id="title" required>
+
+            <label>Price (if applicable):</label>
+            <input type="text" id="price">
+
+<label>Image URL:</label>
+<input type="text" id="image-url" placeholder="Enter image URL">
+
+<label>Upload Image:</label>
+<input type="file" id="image-upload" accept="image/*">
+
+<button type="submit">Submit Listing</button>
+<button type="button" id="close-form">Cancel</button>
+
+
+        </form>
+    </div>
+
+    <script src="explorelist.js"></script>
+</body>
+</html>

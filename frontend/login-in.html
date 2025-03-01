@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Your Accommodation</title>
+    <link rel="stylesheet" href="post_accommodation.css">
+</head>
+<body>
+    <!-- Main Container with Full Background Image -->
+    <div class="background-container">
+        <div class="overlay">
+            <section class="form-section">
+                <h1>Post Your Accommodation</h1>
+                <form action="/submit-apartment" method="POST" enctype="multipart/form-data">
+                    <!-- Apartment Photos -->
+                    <label for="apartmentPhotos">Upload Apartment Photos:</label>
+                    <input type="file" id="apartmentPhotos" name="photos[]" multiple required>
+
+                    <!-- Description -->
+                    <label for="description">Apartment Description:</label>
+                    <textarea id="description" name="description" rows="4" placeholder="Describe your apartment, amenities, location, etc." required></textarea>
+
+                    <!-- Gender Preference -->
+                    <label for="genderPreference">Preferred Gender:</label>
+                    <select id="genderPreference" name="genderPreference" required>
+                        <option value="any">Any</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+
+                    <!-- Rent Cost -->
+                    <label for="rentCost">Monthly Rent Cost:</label>
+                    <input type="number" id="rentCost" name="rentCost" placeholder="Enter rent cost" required>
+
+                    <button type="submit">Post Accommodation</button>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

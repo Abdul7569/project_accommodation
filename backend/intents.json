@@ -1,0 +1,150 @@
+{
+    "intents":[
+       {
+          "tag": "greeting",
+          "patterns": [
+             "Hi",
+             "Hello",
+             "Hey",
+             "Good day",
+             "What's up?",
+             "Hey there",
+             "Hi, how are you?"
+          ],
+          "responses": [
+             "Hello! How can I assist you with room listings or swaps?",
+             "Hey! Looking for a new room or want to list one?",
+             "Hi! How can I help with accommodations today?"
+          ]
+       },
+       {
+          "tag": "goodbye",
+          "patterns": [
+             "Bye",
+             "See you later",
+             "Goodbye",
+             "I have to go",
+             "Talk to you later"
+          ],
+          "responses": [
+             "Goodbye! Hope you find a great place to stay.",
+             "See you later! Let me know if you need more help.",
+             "Bye! Happy house hunting!"
+          ]
+       },
+       {
+          "tag": "list_room",
+          "patterns": [
+             "I want to list a room",
+             "Can I put my room for rent?",
+             "How do I list my room?",
+             "I have a room available",
+             "I need to post a rental room"
+          ],
+          "responses": [
+             "You can list your room by providing details like rent, location, and amenities.",
+             "Sure! Click on 'List a Room' and fill in the details.",
+             "Listing a room is easy! Provide details like price, location, and pictures."
+          ]
+       },
+       {
+          "tag": "swap_room",
+          "patterns": [
+             "I want to swap my room",
+             "Can I switch my apartment?",
+             "How do I swap my room with someone else?",
+             "I don’t like my current place, can I exchange it?"
+          ],
+          "responses": [
+             "Yes! You can find students willing to swap rooms. Just list your current room and browse swap options.",
+             "Room swaps are available! Check the 'Swap Rooms' section to see available options.",
+             "To swap rooms, post your current room details and select a room you'd like to exchange with."
+          ]
+       },
+       {
+          "tag": "sell_furniture",
+          "patterns": [
+             "I want to sell my furniture",
+             "Can I list my old furniture for sale?",
+             "Where can I sell my used furniture?",
+             "How do I post my furniture for sale?"
+          ],
+          "responses": [
+             "Yes! You can list your furniture in the 'Sell Furniture' section.",
+             "Just upload pictures and details, and interested buyers will contact you!",
+             "Selling furniture is easy! Click 'Sell Items' and enter your details."
+          ]
+       },
+       {
+          "tag": "giveaway_items",
+          "patterns": [
+             "I have items to give away",
+             "Can I donate my stuff?",
+             "Where can I list free items?",
+             "I don’t need this item anymore, can I give it away?"
+          ],
+          "responses": [
+             "Yes! You can list your free items in the 'Giveaway' section.",
+             "Post your items as 'Free Giveaway' and let others claim them!",
+             "Giving away items is simple—just upload details and let others pick them up."
+          ]
+       },
+       {
+          "tag": "rent_inquiry",
+          "patterns": [
+             "How much is the rent in this area?",
+             "What is the average rent here?",
+             "Tell me about rental prices",
+             "How much do apartments cost?"
+          ],
+          "responses": [
+             "Rent varies by location and amenities. What's your budget?",
+             "Shared apartments range from $500 to $1200 per month. Private ones are higher.",
+             "I can find listings within your budget. How much are you looking to spend?"
+          ]
+       },
+       {
+          "tag": "nearby_amenities",
+          "patterns": [
+             "What amenities are nearby?",
+             "Are there supermarkets close by?",
+             "Where can I find a gym near me?",
+             "Is there public transport near this apartment?"
+          ],
+          "responses": [
+             "Yes! I can find amenities like gyms, grocery stores, and public transport near your location.",
+             "Nearby amenities include restaurants, gyms, and public transport. Need specific info?",
+             "Let me check! What kind of amenities are you looking for?"
+          ]
+       },
+       {
+          "tag": "lease_duration",
+          "patterns": [
+             "What is the minimum lease period?",
+             "Can I rent short-term?",
+             "Is month-to-month leasing available?",
+             "Do they offer 6-month leases?"
+          ],
+          "responses": [
+             "Most apartments require 6-12 months, but short-term rentals are available too.",
+             "Some landlords offer month-to-month leases. Want me to check?",
+             "Let me know your preferred lease term, and I’ll find matches for you."
+          ]
+       },
+       {
+          "tag": "payment_methods",
+          "patterns": [
+             "How do I pay rent?",
+             "Can I pay online?",
+             "Do landlords accept credit cards?",
+             "Is rent paid monthly or weekly?"
+          ],
+          "responses": [
+             "Rent is usually paid monthly. Some landlords accept online payments.",
+             "Payment methods vary. Would you like me to find listings with online payment options?",
+             "Most places accept bank transfers or checks. Some accept credit cards."
+          ]
+       }
+    ]
+ }
+ 

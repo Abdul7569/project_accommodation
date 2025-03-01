@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="dropdown">
+            <button class="dropdown-button" onclick="toggleDropdown()">
+                PORTAL LOGIN
+                <span class="arrow">&#9654;</span> <!-- Right arrow -->
+            </button>
+            <div class="dropdown-content">
+                <a href="resident-login.html">RESIDENT LOGIN</a>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="bot.html">ChatBot</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Find Your Perfect Shared Space</h1>
+        <p>Your accommodation journey starts here.</p>
+        <button class="explore-btn" onclick="window.location.href='explore_listing.html'">
+            Explore Listings
+        </button>
+        
+    </section>
+    
+    <div class="section-class">
+        <h1>IT'S FOR US</h1>
+    </div>
+
+    <!-- Parallax Section -->
+    <section class="parallax"></section>
+
+    <!-- Cards Section -->
+    <section class="cards-section">
+        <div class="card" data-aos="fade-up">
+            <img src="house.jpg" alt="Apartment Image">
+            <h3>Shared Apartment 1</h3>
+            <p>Beautiful and cozy apartment with all amenities included.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <img src="apartment2.jpg" alt="Apartment Image">
+            <h3>Shared Apartment 2</h3>
+            <p>Spacious apartment located near campus with easy access to public transport.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="400">
+            <img src="apartment3.jpg" alt="Apartment Image">
+            <h3>Shared Apartment 3</h3>
+            <p>Modern apartment with a friendly roommate environment.</p>
+        </div>
+    </section>
+
+    <!-- AOS Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- Link to your JavaScript file -->
+    <script src="frontend/logic.js" defer></script>
+</body>
+</html>

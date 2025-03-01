@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lease Owner Login</title>
+    <link rel="stylesheet" href="style-login.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Image -->
+        <img src="https://cdn.prod.website-files.com/5f18a24d02bace2ac2d05bac/61f4908d5a3e6e1f849b6a8d_1920lease-agreement-signing-PNG1X_00e459bf17bb0be2088bc2065a591553.png" alt="Lease Owner Login" class="header-image"> <!-- Replace with actual image path -->
+
+        <h1>Lease Owner Login</h1>
+        <form action="/lease-owner-login" method="POST">
+            <label for="ownerEmail">Email:</label>
+            <input type="email" id="ownerEmail" name="email" placeholder="Enter your email" required>
+            
+            <label for="ownerPassword">Password:</label>
+            <input type="password" id="ownerPassword" name="password" placeholder="Enter your password" required>
+            
+            <button type="submit">Login</button>
+        </form>
+        <div class="register-option">
+            <p>Not a member? <a href="register.html">Register here</a></p>
+        </div>
+        <a href="index.html">Back to Home</a>
+        <footer>
+            <p>Need help? <a href="contact.html">Contact Us</a></p>
+        </footer>
+    </div>
+</body>
+</html>
