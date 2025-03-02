@@ -3,7 +3,8 @@ import numpy as np
 import random
 import nltk; nltk.download('punkt_tab')
 import pickle
-from tensorflow.keras.models import load_model
+# import tensorflow as tf
+from tf.keras.models import load_model
 from nltk.stem import WordNetLemmatizer
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout

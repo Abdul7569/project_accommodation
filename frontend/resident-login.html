@@ -13,13 +13,14 @@
 
         <h1>Resident Login</h1>
         <form action="/resident-login" method="POST">
-            <label for="residentEmail">Email:</label>
-            <input type="email" id="residentEmail" name="email" placeholder="Enter your email" required>
-            
-            <label for="residentPassword">Password:</label>
-            <input type="password" id="residentPassword" name="password" placeholder="Enter your password" required>
-            
-            <button type="submit">Login</button>
+            <label for="UserID">UserID:</label>
+            <input type="text" id="UserID" name="UserID" placeholder="Enter your UserID" required>
+        
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        
+            <button type="button" onclick="login()">Login</button>  
+            <div id="error-message" style="color: red;"></div>
             <div class="register-option">
                 <p>Don't have an account? <a href="register.html">Register here</a></p>
             </div>
@@ -28,6 +29,7 @@
         <footer>
             <p>Need help? <a href="contact.html">Contact Us</a></p>
         </footer>
-    </div>
-</body>
-</html>
+        </div>
+        <script src="logic.js"></script>
+        </body>
+        </html>

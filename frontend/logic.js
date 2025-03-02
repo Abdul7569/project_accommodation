@@ -40,74 +40,144 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Login function
     function login() {
-        const email = document.getElementById("email")?.value;
+        console.log("Login function called.");
+        const UserID = document.getElementById("UserID")?.value;
         const password = document.getElementById("password")?.value;
+        const errorMessageDiv = document.getElementById("error-message");
+        errorMessageDiv.textContent = "";
 
-        if (email && password) {
-            alert("Login attempt for " + email);
-            // Implement login functionality or redirect to backend
+        console.log("UserID:", UserID);
+        console.log("password:", password);
+
+        if (typeof UserID !== 'string') {
+            errorMessageDiv.textContent = "User ID must be a string.";
+            console.log("User ID error.");
+            return;
+        }
+
+        if (typeof password !== 'string') {
+            errorMessageDiv.textContent = "Password must be a string.";
+            console.log("Password error.");
+            return;
+        }
+
+        const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,10}).*$/;
+
+        if (!passwordRegex.test(password)) {
+            errorMessageDiv.textContent = "Password must be 8-10 characters long, contain at least one number, and one special character.";
+            console.log("Password regex error.");
+            return;
+        }
+
+        if (UserID && password) {
+            alert("Login attempt for " + UserID);
+            // Replace with actual server login logic
         } else {
-            alert("Please enter both email and password.");
+            errorMessageDiv.textContent = "Please enter both User ID and password.";
+            console.log("Missing fields error.");
         }
     }
 
-    // Registration function
-    function register() {
-        const name = document.getElementById("name")?.value;
-        const email = document.getElementById("registerEmail")?.value;
-        const password = document.getElementById("registerPassword")?.value;
+   // Registration function
+   function register() {
+    const name = document.getElementById("name")?.value;
+    const UserID = document.getElementById("UserID")?.value;
+    const password = document.getElementById("Password")?.value;
+    const confirmPassword = document.getElementById("confirmPassword")?.value;
+    const contact = document.getElementById("contactInfo")?.value;
+    const gender = document.getElementById("gender")?.value; // Get gender
+    const errorMessageDiv = document.getElementById("error-message");
+    errorMessageDiv.textContent = "";
 
-        if (name && email && password) {
-            alert("Registration attempt for " + name + " (" + email + ")");
-            // Implement registration functionality or redirect to backend
-        } else {
-            alert("Please fill out all fields to register.");
-        }
+    if (typeof name !== 'string') {
+        errorMessageDiv.textContent = "Name must be a string";
+        return;
     }
+
+    // UserID Validation: Starts with an alphabet
+    if (typeof UserID !== 'string' || !/^[a-zA-Z]/.test(UserID)) {
+        errorMessageDiv.textContent = "User ID must start with an alphabet.";
+        console.log("User ID error.");
+        return;
+    }
+
+    if (typeof password !== 'string') {
+        errorMessageDiv.textContent = "Password must be a string.";
+        console.log("Password error.");
+        return;
+    }
+
+    const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,10}).*$/;
+
+    if (!passwordRegex.test(password)) {
+        errorMessageDiv.textContent = "Password must be 8-10 characters long, contain at least one number, and one special character.";
+        console.log("Password regex error.");
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        errorMessageDiv.textContent = "Passwords do not match.";
+        return;
+    }
+
+    // Contact Validation
+    if (!contact || contact.length !== 10 || !/^\d{10}$/.test(contact)) {
+        errorMessageDiv.textContent = "Contact must be 10 digits.";
+        return;
+    }
+
+    if (name && UserID && password && contact && gender) { // Added gender check
+        const userData = {
+            name: name,
+            UserID: UserID,
+            password: password,
+            contact: contact,
+            gender: gender, // Include gender in userData
+        };
+
+        fetch("http://127.0.0.1:5000/register", { // Replace '/register' with your API endpoint
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Registration successful:', data);
+            alert('Registration successful!'); // Or handle success as needed
+            // Optionally, redirect the user or clear the form.
+        })
+        .catch(error => {
+            console.error('Registration failed:', error);
+            errorMessageDiv.textContent = 'Registration failed. Please try again.'; // Display error to user
+        });
+    } else {
+        errorMessageDiv.textContent = "Please fill out all fields to register.";
+    }
+}
 
     // Toggle Contact Info
-    document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(() => {
-            const contactBtn = document.getElementById("contactBtn");
-            const contactInfo = document.getElementById("contactInfo");
-    
-            if (contactBtn && contactInfo) {
-                contactBtn.addEventListener("click", function () {
-                    contactInfo.classList.toggle("hidden");
-    
-                    // Change button text
-                    contactBtn.textContent = contactInfo.classList.contains("hidden") ? "Show Contact Info" : "Hide Contact Info";
-                });
-            } else {
-                console.error("Contact button or info section not found.");
-            }
-        }, 100); // Wait 100ms
-    });
-    
     const contactBtn = document.getElementById("contactBtn");
     const contactInfo = document.getElementById("contactInfo");
 
-    if (contactBtn && contactInfo) {
-        contactBtn.addEventListener("click", function () {
-            if (contactInfo.classList.contains("hidden")) {
-                contactInfo.classList.remove("hidden");
-                contactBtn.textContent = "Hide Contact Info";
-            } else {
-                contactInfo.classList.add("hidden");
-                contactBtn.textContent = "Show Contact Info";
-            }
-        });
-    } else {
-        console.error("Contact button or info section not found.");
-    }
+    // if (contactBtn && contactInfo) {
+    //     contactBtn.addEventListener("click", function () {
+    //         contactInfo.classList.toggle("hidden");
 
-    // Expose functions globally if needed
-    window.toggleForm = toggleForm;
-    window.showLoginForm = showLoginForm;
-    window.login = login;
-    window.register = register;
-});
-document.addEventListener("DOMContentLoaded", function () {
+    //         // Change button text
+    //         contactBtn.textContent = contactInfo.classList.contains("hidden") ? "Show Contact Info" : "Hide Contact Info";
+    //     });
+    // } else {
+    //     console.error("Contact button or info section not found.");
+    // }
+
+    // Tab Functionality
     const tabLinks = document.querySelectorAll(".tab-link");
     const tabContents = document.querySelectorAll(".tab-content");
 
@@ -123,67 +193,31 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Sample data for listings
-    const listingsData = {
-        "available-rooms": [
-            { image: "room1.jpg", title: "Cozy Single Room", price: "$500/month" },
-            { image: "room2.jpg", title: "Shared Apartment", price: "$350/month" }
-        ],
-        "room-swap": [
-            { image: "swap1.jpg", title: "Looking to Swap 1BHK", price: "Negotiable" },
-            { image: "swap2.jpg", title: "Swap Studio for Shared", price: "Flexible" }
-        ],
-        "furniture-sale": [
-            { image: "furniture1.jpg", title: "Study Desk for Sale", price: "$50" },
-            { image: "furniture2.jpg", title: "Sofa Set - Good Condition", price: "$120" }
-        ],
-        "giveaways": [
-            { image: "giveaway1.jpg", title: "Free Books & Stationery", price: "Free" },
-            { image: "giveaway2.jpg", title: "Old Laptop - Needs Repair", price: "Free" }
-        ]
-    };
+    async function getChatResponse(userMessage) {
+        try {
+            const response = await fetch("http://127.0.0.1:5000/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userMessage })
+            });
 
-    function loadListings(category) {
-        const container = document.querySelector(`#${category} .list-container`);
-        container.innerHTML = ""; // Clear previous content
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
 
-        listingsData[category].forEach(item => {
-            const div = document.createElement("div");
-            div.classList.add("list-item");
-            div.innerHTML = `
-                <img src="${item.image}" alt="${item.title}">
-                <h4>${item.title}</h4>
-                <p>${item.price}</p>
-            `;
-            container.appendChild(div);
-        });
-    }
-
-    // Load default category
-    loadListings("available-rooms");
-
-    tabLinks.forEach(button => {
-        button.addEventListener("click", function () {
-            loadListings(this.dataset.tab);
-        });
-    });
-});
-async function getChatResponse(userMessage) {
-    try {
-        const response = await fetch("http://127.0.0.1:5000/chat", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: userMessage })
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            const data = await response.json();
+            console.log("Bot:", data.reply);
+            return data.reply;
+        } catch (error) {
+            console.error("Error fetching response:", error);
+            // Add error display to user here.
         }
-
-        const data = await response.json();
-        console.log("Bot:", data.reply); // Log response
-        return data.reply;
-    } catch (error) {
-        console.error("Error fetching response:", error);
     }
-}
+
+    // Expose functions globally if needed
+    window.toggleForm = toggleForm;
+    window.showLoginForm = showLoginForm;
+    window.login = login;
+    window.register = register;
+    window.getChatResponse = getChatResponse;
+});

@@ -1,105 +1,136 @@
-/* General reset to ensure consistency across browsers */
+/* style-login.css */
+
+/* General Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Set the body background color and basic styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /* removed min-height: 100vh */
     margin: 0;
 }
 
-/* Full page container */
-.login-page {
+/* Register Page Wrapper */
+.register-page-wrapper {
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 450px; /* Reduced max-width */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px;
 }
 
-/* Top image section */
-.top-image {
+/* Header Banner Image */
+header {
     width: 100%;
-    height: 200px; /* Set the height of the image to make it rectangular */
     overflow: hidden;
 }
 
-.top-image img {
+.register-banner {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure the image covers the area without distortion */
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
-/* Login form container */
-.login-container {
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
+/* Register Container */
+.register-container {
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: -50px; /* Pull the form up to overlap the image */
 }
 
-/* Form title */
-.login-container h1 {
+.register-container h2 {
     text-align: center;
-    font-size: 24px;
     margin-bottom: 20px;
+    color: #333;
 }
 
-/* Form input fields */
-.login-container input {
-    width: 100%;
+/* Form Styling */
+.register-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-container input,
+.register-container select {
     padding: 12px;
-    margin: 10px 0;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    font-family: inherit;
+    color: #333;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
 }
 
-/* Submit button */
-.login-container button {
-    width: 100%;
-    padding: 12px;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
+.register-container select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
 }
 
-.login-container button:hover {
-    background-color: #0056b3;
-}
-
-/* Register option below the login form */
-.register-option {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.register-option p {
-    font-size: 14px;
+.register-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
     color: #555;
 }
 
-.register-option a {
+.register-container button {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.register-container button:hover {
+    background-color: #0056b3;
+}
+
+#error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Login Option */
+.login-option {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-option p {
+    color: #555;
+}
+
+.login-option a {
     color: #007BFF;
     text-decoration: none;
     font-weight: bold;
 }
 
-.register-option a:hover {
+.login-option a:hover {
     color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .register-page-wrapper {
+        margin: 10px;
+        border-radius: 0;
+    }
 }
