@@ -65,6 +65,6 @@ A web application designed to help **international students** find and manage re
 ### 🎯 Contributing  
 Contributions are welcome! Feel free to fork this repository, submit issues, or create pull requests.  
 
-📧 **Contact:** [Your Email or GitHub Profile Link]  
+📧 **Contact:** [abdulkalampulicharla@gmail.com]  
 
 🚀 Happy Coding!  
