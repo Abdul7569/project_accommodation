@@ -1,6 +1,6 @@
 # 🏠 Project Accommodation  
 
-A web application designed to help **international students** find and manage rental accommodations, swap rooms for a better living environment, and trade essentials through a **student marketplace**.  
+A web application designed to help **international students** find and manage rental accommodations, swap rooms for a better living environment, and trade essentials through a **student marketplace**.(Not fully functional still working on the things)  
 
 ---
 
